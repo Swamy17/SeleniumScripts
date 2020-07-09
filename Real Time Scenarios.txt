@@ -1,0 +1,70 @@
+Real Time scenario's available in the project.
+
+Calender example:
+==============================
+https://www.youtube.com/watch?v=xkjSt9cy_kY
+
+
+
+DataFormatter formatter=new DataFormatter();
+			String cellData=formatter.formatCellValue(cell);
+
+for(Entry<String,List<Map<String,String>>> testDataSht2:testDataSht1.entrySet())
+{
+				List<Map<String,String>> actualDataPair=testDataSht2.getValue();
+				LinkedList<TestCase> original=(LinkedList<TestCase>) mySheets.get(testDataSht2.getKey());
+				if(original!=null){
+					TestSuite suite=null;
+				//to get the scenaroio object by given key
+				for(TestSuite suite1:suiteList){
+					if(suite1.getSecenarioKey().equalsIgnoreCase(testDataSht2.getKey()))
+						suite=suite1;
+				}
+					String secenarioKey = suite.getSecenarioKey(); 
+					if(testDataDesc.containsKey(secenarioKey)){
+						for(String testDataSetName : testDataDesc.get(secenarioKey)){
+							dataSetNameSuite.add(testDataSetName);
+						}
+					}
+					if(suite.getRunMode().equalsIgnoreCase("Y")){
+					int nc=0;
+==============================================================================================================================
+WebTable scenario's
+==============================================================================================================================
+String sRow = "1";
+String sCol = "4";
+
+//Here we are locating the xpath by passing variables in the xpath
+String sCellValue = driver.findElement(By.xpath(".//*[@id='content']/table/tbody/tr[" + sRow + "]/td[" + sCol + "]")).getText();
+System.out.println(sCellValue);
+System.out.print("\n");
+String sRowValue = "Clock Tower Hotel";
+
+//First loop will find the 'ClOCK TWER HOTEL' in the first column
+
+for (int i=1;i<=5;i++)
+{
+String sValue = null;
+sValue = driver.findElement(By.xpath(".//*[@id='content']/table/tbody/tr[" + i + "]/th")).getText();
+
+if(sValue.equalsIgnoreCase(sRowValue))
+{
+// If the sValue match with the description, it will initiate one more inner loop for all the columns of 'i' row 
+for (int j=1;j<=5;j++)
+{
+String sColumnValue= driver.findElement(By.xpath(".//*[@id='content']/table/tbody/tr[" + i + "]/td["+ j +"]")).getText();
+System.out.println(sColumnValue);
+
+}
+break;
+}
+}
+========================================================================================================================================================================
+
+
+WebElement ele=driver.findElement(By.xpath(""));
+List row_table=ele.findElements(By.tagName("tr)
+
+for(int i=0;i<row_table;i++)
+{
+List<WebElement> ele1=row_table.get(i).
